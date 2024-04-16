@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/list', [ChurrascoController::class, 'list'])->name('list');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
