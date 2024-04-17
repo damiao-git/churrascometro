@@ -10,18 +10,18 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>
-        <a href="{{ route('churrasco.create')}}" class="btn btn-primary m-1">Novo</a>
-        <a href="{{ route('churrasco.index')}}" class="btn btn-primary m-1">Lista</a>
-    </header>
 
     @if ($errors->any())
     <ul>
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
-@endif
+    @endif
     @yield('content')
+    <footer>
+        <a href="{{ route('churrasco.create')}}" class="btn btn-primary m-1">Novo</a>
+        <a href="{{ route('churrasco.index')}}" class="btn btn-primary m-1">Lista</a>
+    </footer>
 </body>
 </html>

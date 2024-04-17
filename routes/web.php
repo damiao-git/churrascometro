@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/search', [ChurrascoController::class, 'search'])->name('churrasco.search');
+
 Route::delete('/churrasco/{id}', [ChurrascoController::class, 'delete'])->name('churrasco.delete');
 
 Route::put('/churrasco/{id}', [ChurrascoController::class, 'update'])->name('churrasco.update');

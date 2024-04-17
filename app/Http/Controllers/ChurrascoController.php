@@ -82,4 +82,21 @@ class ChurrascoController extends Controller
 
     }
 
+    public function search(Request $request)
+    {
+
+        $data = explode('/', $request->search);
+
+        $data_formatada = $data[2].'-'.$data[1].'-'.$data[0];
+
+        $churrascos = Churrasco::where('local', 'LIKE', "%{$request->search}%")
+        ->orWhere('data', '=', $data_formatada)->paginate();
+
+        // if(!$churrascos)
+        //     redirect()->back()-with('message', 'Dados não encontrados');
+
+        return view('index', compact('churrascos'));
+
+    }
+
 }
