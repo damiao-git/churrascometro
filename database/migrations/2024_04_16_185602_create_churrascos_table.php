@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('churrascos', function (Blueprint $table) {
+
             $table->id();
+            $table->date('data');
+            $table->string('local');
+            $table->integer('qnt_pessoas');
             $table->timestamps();
         });
     }

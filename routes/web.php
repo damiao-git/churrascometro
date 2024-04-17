@@ -13,8 +13,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/list', [ChurrascoController::class, 'list'])->name('list');
+Route::delete('/churrasco/{id}', [ChurrascoController::class, 'delete'])->name('churrasco.delete');
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::put('/churrasco/{id}', [ChurrascoController::class, 'update'])->name('churrasco.update');
+
+Route::get('/create', [ChurrascoController::class, 'create'])->name('churrasco.create');
+
+Route::post('/index', [ChurrascoController::class, 'store'])->name('churrasco.store');
+
+Route::get('/show/{id}', [ChurrascoController::class, 'show'])->name('churrasco.show');
+
+Route::get('/edit/{id}', [ChurrascoController::class, 'edit'])->name('churrasco.edit');
+
+Route::get('/index', [ChurrascoController::class, 'index'])->name('churrasco.index');
+
+
+
+// Route::get('/', function () {
+//     return view('index');
+// });
