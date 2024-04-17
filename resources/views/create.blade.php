@@ -9,16 +9,16 @@
             @csrf
             <div class="mb-3">
                 <label for="date" class="form-label">Data</label>
-                <input type="date" id="data" name="data" class="form-control">
+                <input type="date" id="data" name="data" class="form-control" required>
                 <div class="text-secondary">Anote na sua agenda</div>
             </div>
             <div class="mb-3">
                 <label for="local" class="form-label" >Local</label>
-                <input type="text" id="local" class="form-control" name="local">
+                <input type="text" id="local" class="form-control" name="local" required>
             </div>
             <div class="mb-3">
                 <label for="people" class="form-label">Quantas pessoas irão?</label>
-                <input type="number" id="qnt_pessoas" class="form-control" name="qnt_pessoas">
+                <input type="number" id="qnt_pessoas" class="form-control" name="qnt_pessoas" required>
                 <div></div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>

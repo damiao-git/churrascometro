@@ -27,7 +27,7 @@ Route::get('/edit/{id}', [ChurrascoController::class, 'edit'])->name('churrasco.
 
 Route::get('/index', [ChurrascoController::class, 'index'])->name('churrasco.index');
 
-
+Route::get('/', [ChurrascoController::class, 'index'])->name('churrasco.index');
 
 // Route::get('/', function () {
 //     return view('index');

@@ -10,7 +10,7 @@ class ChurrascoController extends Controller
 {
     public function index()
     {
-        $churrascos = Churrasco::get();
+        $churrascos = Churrasco::paginate();
 
         return view('index', compact('churrascos'));
     }
@@ -57,16 +57,16 @@ class ChurrascoController extends Controller
 
         $churrasco->update($request->all());
 
-        return redirect()->route('churrasco.index');
+        return redirect()->route('churrasco.index')->with('message', 'Registro atualizado com sucesso!');;
 
     }
 
 
     public function store(Request $request)
     {
-
+        //dd($request->all());
         Churrasco::create($request->all());
-        return redirect()->route('churrasco.index');
+        return redirect()->route('churrasco.index')->with('message', 'Registro salvo com sucesso!');;
     }
 
     public function delete($id)
@@ -78,7 +78,7 @@ class ChurrascoController extends Controller
 
         $churrasco->delete();
 
-        return redirect()->route('churrasco.index');
+        return redirect()->route('churrasco.index')->with('message', 'Registro deletado com sucesso!');;
 
     }
 

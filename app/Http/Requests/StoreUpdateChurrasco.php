@@ -22,7 +22,9 @@ class StoreUpdateChurrasco extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'data' => 'required|min:8|max:10',
+            'local' => 'required|min:3|max:100',
+            'qnt_pessoas' => 'required'
         ];
     }
 }

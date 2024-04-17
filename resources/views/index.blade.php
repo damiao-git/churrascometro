@@ -2,6 +2,11 @@
 
 @section('title', 'Lista de Churrascos')
 @section('content')
+
+@if (session('message'))
+<div class="text-danger">{{ session('message') }}</div>
+@endif
+
 <h1>Bem vindo ao Churrascômetro!</h1>
 <h2>Churrascos marcados até o momento</h2>
 <table class="table table-hover">
@@ -34,4 +39,8 @@
     @endforeach
     </tbody>
 </table>
+
+
+{{ $churrascos -> links() }}
 @endsection
+
