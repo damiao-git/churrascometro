@@ -6,6 +6,8 @@ use App\Http\Requests\StoreUpdateChurrasco;
 use App\Models\Churrasco;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\confirm;
+
 class ChurrascoController extends Controller
 {
     public function index()
@@ -45,10 +47,9 @@ class ChurrascoController extends Controller
         }
 
         return view('edit', compact('churrasco'));
-
     }
 
-    public function update(StoreUpdateChurrasco $request,$id)
+    public function update(StoreUpdateChurrasco $request, $id)
     {
 
         if (!$churrasco = Churrasco::find($id)) {
@@ -58,7 +59,6 @@ class ChurrascoController extends Controller
         $churrasco->update($request->all());
 
         return redirect()->route('churrasco.index')->with('message', 'Registro atualizado com sucesso!');;
-
     }
 
 
@@ -72,6 +72,7 @@ class ChurrascoController extends Controller
     public function delete($id)
     {
 
+
         if (!$churrasco = Churrasco::find($id)) {
             return redirect()->back();
         }
@@ -79,7 +80,6 @@ class ChurrascoController extends Controller
         $churrasco->delete();
 
         return redirect()->route('churrasco.index')->with('message', 'Registro deletado com sucesso!');;
-
     }
 
     public function search(Request $request)
@@ -87,16 +87,14 @@ class ChurrascoController extends Controller
 
         $data = explode('/', $request->search);
 
-        $data_formatada = $data[2].'-'.$data[1].'-'.$data[0];
+        $data_formatada = $data[2] . '-' . $data[1] . '-' . $data[0];
 
         $churrascos = Churrasco::where('local', 'LIKE', "%{$request->search}%")
-        ->orWhere('data', '=', $data_formatada)->paginate();
+            ->orWhere('data', '=', $data_formatada)->paginate();
 
         // if(!$churrascos)
         //     redirect()->back()-with('message', 'Dados não encontrados');
 
         return view('index', compact('churrascos'));
-
     }
-
 }

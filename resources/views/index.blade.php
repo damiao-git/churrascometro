@@ -41,7 +41,7 @@
                 <td><form action="{{ route('churrasco.delete', $churrasco->id)}}" method="post">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Excluir churrasco {{ $churrasco->local }} do dia {{date('d/m/Y', strtotime($churrasco->data))}}?')">Excluir</button>
                 </form></td>
             </tr>
     @endforeach
