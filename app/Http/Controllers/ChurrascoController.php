@@ -29,13 +29,13 @@ class ChurrascoController extends Controller
             return redirect()->route('churrasco.index');
         }
 
-        return view('show', compact('churrasco'));
+        return view('churrasco.show', compact('churrasco'));
     }
 
 
     public function create()
     {
-        return view('create');
+        return view('churrasco.create');
     }
 
 
@@ -46,7 +46,7 @@ class ChurrascoController extends Controller
             return redirect()->route('churrasco.index');
         }
 
-        return view('edit', compact('churrasco'));
+        return view('churrasco.edit', compact('churrasco'));
     }
 
     public function update(StoreUpdateChurrasco $request, $id)
@@ -58,7 +58,7 @@ class ChurrascoController extends Controller
 
         $churrasco->update($request->all());
 
-        return redirect()->route('churrasco.index')->with('message', 'Registro atualizado com sucesso!');;
+        return redirect()->route('index')->with('message', 'Registro atualizado com sucesso!');
     }
 
 
@@ -66,7 +66,7 @@ class ChurrascoController extends Controller
     {
         //dd($request->all());
         Churrasco::create($request->all());
-        return redirect()->route('churrasco.index')->with('message', 'Registro salvo com sucesso!');;
+        return redirect()->route('index')->with('message', 'Registro salvo com sucesso!');;
     }
 
     public function delete($id)
@@ -79,22 +79,20 @@ class ChurrascoController extends Controller
 
         $churrasco->delete();
 
-        return redirect()->route('churrasco.index')->with('message', 'Registro deletado com sucesso!');;
+        return redirect()->route('churrasco.index')->with('message', 'Registro deletado com sucesso!');
     }
 
     public function search(Request $request)
     {
 
-        $data = explode('/', $request->search);
 
-        $data_formatada = $data[2] . '-' . $data[1] . '-' . $data[0];
 
         $churrascos = Churrasco::where('local', 'LIKE', "%{$request->search}%")
-            ->orWhere('data', '=', $data_formatada)->paginate();
+            ->paginate();
 
         // if(!$churrascos)
         //     redirect()->back()-with('message', 'Dados não encontrados');
 
-        return view('index', compact('churrascos'));
+        return view('churrasco.index', compact('churrascos'));
     }
 }

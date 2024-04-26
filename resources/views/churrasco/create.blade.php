@@ -2,9 +2,9 @@
 
 @section('title', 'Criar novo churrasco')
 @section('content')
-
-    <div class="container p-5">
-        <h1>Cadastrar novo Churrasco</h1>
+<div class="d-flex align-items-center py-4 bg-light">
+    <div class="w-100 m-auto form-container">
+        <h1>Novo Churrasco</h1>
         <form class="form" action="{{ route('churrasco.store')}}" method="post">
             @csrf
             <div class="mb-3">
@@ -21,7 +21,12 @@
                 <input type="number" id="qnt_pessoas" class="form-control" name="qnt_pessoas" required>
                 <div></div>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <div class=botoes>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <a href="{{ route('churrasco.create')}}" class="btn btn-secondary m-1">Novo</a>
+                <a href="{{ route('churrasco.index')}}" class="btn btn-secondary m-1">Lista</a>
+            </div>
         </form>
     </div>
+</div>
 @endsection
