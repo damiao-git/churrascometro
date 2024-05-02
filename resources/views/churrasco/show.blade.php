@@ -3,7 +3,7 @@
 @section('title', 'Detalhes do seu churrasco')
 @section('content')
 
-    <div class="container p-5">
+    <div class="container p-5 text-white">
         <h1>Detalhes</h1>
         <form class="form">
             <div class="mb-3">

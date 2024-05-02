@@ -25,12 +25,18 @@ Route::get('/index', [ChurrascoController::class, 'index'])->name('churrasco.ind
 Route::get('/', [ChurrascoController::class, 'index'])->name('churrasco.index');
 
 Route::get('usuario/create', [UsuarioController::class, 'create'])->name('usuario.create');
-Route::get('usuario/index', [UsuarioController::class, 'index'])->name('usuario.index');
+Route::get('usuarios', [UsuarioController::class, 'index'])->name('usuario.index');
 Route::post('usuario/index', [UsuarioController::class, 'store'])->name('usuario.store');
 Route::get('usuario/show/{id}', [UsuarioController::class, 'show'])->name('usuario.show');
 Route::get('usuario/edit/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
 Route::delete('usuario/{id}', [UsuarioController::class, 'destroy'])->name('usuario.delete');
 Route::put('/usuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
+Route::get('/login', [UsuarioController::class, 'login'])->name('auth.login');
+Route::get('/register', [UsuarioController::class, 'register'])->name('auth.register');
+Route::get('/forgot', [UsuarioController::class, 'forgot'])->name('auth.forgot');
+Route::get('/reset', [UsuarioController::class, 'reset'])->name('auth.reset');
 // Route::get('/', function () {
 //     return view('index');
 // });
+
+

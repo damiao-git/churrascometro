@@ -3,7 +3,7 @@
 @section('title', 'Criar novo churrasco')
 @section('content')
 
-    <div class="container p-5">
+    <div class="w-100 m-auto form-container text-white">
         <h1>Editar</h1>
         <form class="form" action="{{ route('churrasco.update', $churrasco->id)}}" method="post">
             @csrf

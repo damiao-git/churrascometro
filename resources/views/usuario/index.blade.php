@@ -6,11 +6,11 @@
     @if (session('message'))
         <div class="text-success text-center fw-2">{{ session('message') }}</div>
     @endif
-    <div class="container">
+    <div class="container text-white">
         <div class="title text-center">
-            <h1>Usuarios</h1>
+            <h1>Usuários</h1>
         </div>
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover text-white">
             <thead>
                 <tr class="table-secondary text-center">
                     <th>#</th>

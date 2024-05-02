@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Churrasco;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,7 +15,7 @@ class ChurrascoSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('churrascos')->insert([
+        Churrasco::create([
             'data' => '2024-04-15',
             'local' => 'casa da esquina',
             'qnt_pessoas' => '5',
