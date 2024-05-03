@@ -3,14 +3,14 @@
 @section('title', 'Criar novo churrasco')
 @section('content')
 
-<div class="container p-5">
+<div class="container p-5 text-white">
     <h1>Editar</h1>
     <form class="form" action="{{ route('usuario.update', $usuario->id)}}" method="post">
         @csrf
         @method('put')
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control"value="{{ $usuario->nome}}" required>
+            <input type="text" id="nome" name="nome" class="form-control"value="{{ $usuario->name}}" required>
         </div>
         <div class="mb-3">
             <label for="endereco" class="form-label" >Endereço</label>
@@ -26,7 +26,7 @@
         </div>
         <div class=botoes>
             <button type="submit" class="btn btn-primary">Enviar</button>
-            <a href="{{ route('usuario.create')}}" class="btn btn-secondary m-1">Novo</a>
+            {{-- <a href="{{ route('usuario.create')}}" class="btn btn-secondary m-1">Novo</a> --}}
             <a href="{{ route('usuario.index')}}" class="btn btn-secondary m-1">Lista</a>
         </div>
     </form>

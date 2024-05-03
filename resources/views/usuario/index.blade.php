@@ -10,7 +10,7 @@
         <div class="title text-center">
             <h1>Usuários</h1>
         </div>
-        <table class="table table-bordered table-hover text-white">
+        <table class="table table-bordered text-white">
             <thead>
                 <tr class="table-secondary text-center">
                     <th>#</th>
@@ -27,7 +27,7 @@
                         <strong>
                             <th>{{ $usuario->id }}</th>
                         </strong>
-                        <td>{{ $usuario->nome }}</td>
+                        <td>{{ $usuario->name }}</td>
                         <td>{{ $usuario->endereco }}</td>
                         <td>{{ $usuario->email }}</td>
                         <td>{{ $usuario->telefone }}</td>
@@ -39,7 +39,7 @@
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Excluir usuario {{ $usuario->nome }}?')">Excluir</button>
+                                    onclick="return confirm('Excluir usuario {{ $usuario->name }}?')">Excluir</button>
                             </form>
                         </td>
                     </tr>
@@ -47,11 +47,7 @@
             </tbody>
         </table>
         <div class="footer">
-            <a href="{{ route('usuario.create') }}" class="btn btn-secondary m-1">Novo</a>
-            <a href="{{ route('usuario.index') }}" class="btn btn-secondary m-1">Lista</a>
-
         </div>
-    </div>
 
-    {{ $usuarios->links() }}
-@endsection
+        {{ $usuarios->links() }}
+    @endsection

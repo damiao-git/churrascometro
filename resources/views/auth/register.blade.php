@@ -12,7 +12,7 @@
                         <h2 class="fw-bold text-secondary">Registre-se</h2>
                     </div>
                     <div class="card-body p-5">
-                        <div class="show_success_alert"></div>
+                        <div id="show_success_alert"></div>
                         <form action="#" method="post" id="register_form">
                             @csrf
                             <div class="mb-3">
@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="mb-3 d-grid">
-                                <button type="submit" class="btn btn-dark rounded-0" id="register_btn">Cadastrar</button>
+                                <input type="submit" class="btn btn-dark rounded-0" id="register_btn" value="Registrar-se">
                             </div>
                             <div class="text-center text-secondary">
                                 <div>Já possui cadastro? <a href="{{ route('auth.login') }}">Login</a></div>
