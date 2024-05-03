@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('endereco')->nullable();
             $table->string('email');
+            $table->string('picture')->nullable();
             $table->string('telefone')->nullable();
             $table->string('password');
             $table->timestamps();

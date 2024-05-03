@@ -40,7 +40,7 @@
                                 <input type="submit" class="btn btn-dark rounded-0" id="register_btn" value="Registrar-se">
                             </div>
                             <div class="text-center text-secondary">
-                                <div>Já possui cadastro? <a href="{{ route('auth.login') }}">Login</a></div>
+                                <div>Já possui cadastro? <a href="{{ route('usuario.login') }}">Login</a></div>
                             </div>
                     </div>
                     </form>

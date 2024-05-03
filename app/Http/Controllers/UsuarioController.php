@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller
@@ -72,15 +74,28 @@ class UsuarioController extends Controller
 
         return view('usuario.edit', compact('usuario'));
     }
-    public function update(Request $request, string $id)
+    public function profileUpdate(Request $request)
     {
-        if (!$usuario = Usuario::find($id)) {
-            return redirect()->back();
+        $usuario = Usuario::where('id', $request->id)->first();
+        $user_p = $usuario->password;
+
+        if($request->password == ''){
+            $verUser = $user_p;
+        }else{
+            $verUser = $request->password;
         }
 
-        $usuario->update($request->all());
-
-        return redirect()->route('usuario.index')->with('message', 'Registro atualizado com sucesso!');
+        Usuario::where('id', $request->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'telefone' => $request->tel,
+            'endereco' => $request->endereco,
+            'password' => Hash::make($verUser),
+        ]);
+        return response()->json([
+            'status' => 200,
+            'messages' => 'Perfil atualizado com sucesso!'
+        ]);
     }
     public function destroy(string $id)
     {
@@ -155,7 +170,12 @@ class UsuarioController extends Controller
     }
     public function profile()
     {
-        return view('profile');
+        $data = [
+            'userInfo' => DB::table('usuarios')
+            ->where('id', session('loggedInUser'))
+            ->first()
+        ];
+        return view('profile', $data);
     }
     public function logoutUser()
     {
@@ -163,5 +183,27 @@ class UsuarioController extends Controller
             session()->pull('loggedInUser');
             return redirect('/');
         }
+    }
+    public function profileImageUpdate(Request $request)
+    {
+        $user_id = $request->user_id;
+        $user = Usuario::find($user_id);
+
+        if($request->hasfile('picture')){
+            $file = $request->file('picture');
+            $fileName = time().'.'.$file->getClientOriginalExtension();
+            $file->storeAs('public/images/', $fileName);
+
+            if($user->picture){
+                Storage::delete('public/images/'.$user->picture);
+            }
+        }
+        Usuario::where('id', $user_id)->update([
+            'picture' => $fileName
+        ]);
+        return response()->json([
+            'status' => 200,
+            'messages' => 'Imagem de perfil atualizada!'
+        ]);
     }
 }
