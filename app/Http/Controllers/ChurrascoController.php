@@ -58,7 +58,7 @@ class ChurrascoController extends Controller
 
         $churrasco->update($request->all());
 
-        return redirect()->route('index')->with('message', 'Registro atualizado com sucesso!');
+        return redirect()->route('churrasco.index')->with('message', 'Registro atualizado com sucesso!');
     }
 
 
@@ -66,7 +66,7 @@ class ChurrascoController extends Controller
     {
         //dd($request->all());
         Churrasco::create($request->all());
-        return redirect()->route('index')->with('message', 'Registro salvo com sucesso!');;
+        return redirect()->route('churrasco.index')->with('message', 'Registro salvo com sucesso!');;
     }
 
     public function delete($id)
@@ -84,9 +84,6 @@ class ChurrascoController extends Controller
 
     public function search(Request $request)
     {
-
-
-
         $churrascos = Churrasco::where('local', 'LIKE', "%{$request->search}%")
             ->paginate();
 
@@ -94,5 +91,15 @@ class ChurrascoController extends Controller
         //     redirect()->back()-with('message', 'Dados não encontrados');
 
         return view('churrasco.index', compact('churrascos'));
+    }
+    public static function calcularCarne($quantidade)
+    {
+        $minimo = $quantidade * 300 / 1000;
+        $maximo = $quantidade * 700 / 1000;
+        return "Entre {$minimo}Kg e {$maximo}Kg de carne";
+    }
+    public static function calcularBebida($quantidade)
+    {
+        return "Em média {$quantidade}L de bebida";
     }
 }

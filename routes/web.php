@@ -22,6 +22,8 @@ Route::post('/index', [ChurrascoController::class, 'store'])->name('churrasco.st
 Route::get('/show/{id}', [ChurrascoController::class, 'show'])->name('churrasco.show');
 Route::get('/edit/{id}', [ChurrascoController::class, 'edit'])->name('churrasco.edit');
 Route::get('/index', [ChurrascoController::class, 'index'])->name('churrasco.index');
+Route::get('/carne/{quantidade}', [ChurrascoController::class, 'calcularCarne'])->name('churrasco.carne');
+Route::get('/bebida/{quantidade}', [ChurrascoController::class, 'calcularBebida'])->name('churrasco.bebida');
 
 Route::delete('usuario/{id}', [UsuarioController::class, 'destroy'])->name('usuario.delete');
 Route::post('usuario/index', [UsuarioController::class, 'store'])->name('usuario.store');
