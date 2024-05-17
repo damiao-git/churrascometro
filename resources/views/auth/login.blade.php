@@ -2,47 +2,29 @@
 
 @section('title', 'Login')
 @section('content')
-
-
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-center align-items-center min-vh-100">
-            <div class="col-lg-4">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h2 class="fw-bold text-secondary">Login</h2>
-                    </div>
-                    <div class="card-body p-5">
-                        <div id="login_alert"></div>
-                        <form action="#" method="post" id="login-form">
-                            @csrf
-                            <div class="mb-3">
-                                <input type="email" class="form-control rounded-0" placeholder="Email" name="email"
-                                    id="email" autocomplete="off">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" class="form-control rounded-0"
-                                    placeholder="Senha" name="password" id="password" autocomplete="off">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="mb-3">
-                                <a href="{{ route('auth.forgot') }}" class="text-decoration-nome">Esqueceu a senha?</a>
-                            </div>
-                            <div class="mb-3 d-grid">
-                                <input type="submit" class="btn btn-dark rounded-0" id="login_btn" value="Entrar">
-                            </div>
-                            <div class="text-center text-secondary">
-                                <div>Não possui cadastro? <a href="{{ route('auth.register') }}">Registrar-se</a></div>
-
-                            </div>
-                    </div>
-                    </form>
-                </div>
+<main>
+    <div class="container">
+        <div class="card">
+            <div class="cabecalho">
+                <h2>LOGIN</h2>
+            </div>
+            <hr>
+            <div class="campos">
+                <form action="#" method="post" id="login-form">
+                    @csrf
+                    <input type="email" placeholder="Email" name="email"
+                    id="email" autocomplete="off">
+                    <input type="password" placeholder="Senha" name="password" id="password" autocomplete="off">
+                    <a href="{{ route('auth.forgot') }}">Esqueceu a senha?</a>
+                    <a href="#"><button type="submit" id="login_btn">Entrar</button></a>
+                </form>
+            </div>
+            <div class="registrar">
+                <p>Não possui cadastro? <a href="{{ route('auth.register') }}">Registrar-se</a></p>
             </div>
         </div>
     </div>
-    </div>
-
+</main>
 
 @endsection
 @section('script')

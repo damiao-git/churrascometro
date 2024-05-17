@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: #d9d9d9;
+}
+
+header {
+    background: #E0A07C;
+    width: 100vw;
+    height: 117px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo{
+    position: absolute;
+    left: 0;
+}
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-left: 50px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    width: 670px;
+    height: 40px;
+    /* position: relative; */
+    right: 170px;
+    gap: 5%;
+    /* margin-right: 50vh; */
+    margin-top: 15px;
+
+}
+
+.menu ul li {
+    list-style-type: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    padding: 10px 30px;
+    background-color: #EB423F;
+    color: #000;
+
+    font-weight: 600;
+    border-radius: 10px;
+    ;
+}
+
+.container {
+
+    width: calc(100vw);
+    height: calc(100vh - 117px);
+    position: relative;
+    /* right: 30%;
+    top: 27%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #E6E6E6;
+
+    & .card {
+        position: relative;
+        width: 750px;
+        max-height: 450px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+
+        & .cabecalho {
+            position: relative;
+            top: -40px;
+            right: -25px;
+            width: 100%;
+            color: #d9c9c9;
+            font-size: 15px;
+        }
+
+        & hr {
+            width: 99%;
+            height: 2px;
+            border: #d9c9c9 1px solid;
+            position: relative;
+            top: -45px;
+        }
+
+        & .campos {
+            display: flex;
+            flex-direction: column;
+
+            & form {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 19px;
+
+                & input {
+                    width: 585px;
+                    height: 44px;
+                    border: #a3a3a3 2px solid;
+                    border-radius: 10px;
+                    position: relative;
+                    top: -20px;
+                    font-size: 17px;
+                }
+
+                & input::placeholder {
+                    color: #c5afaf;
+                    font-size: 17px;
+                    font-weight: 500;
+                    padding: 10px;
+                }
+
+                & a{
+                    text-decoration: none;
+                    color: #EB423F;
+                    font-size: 20px;
+                    position: relative;
+                    top: -20px;
+                }
+                & button{
+                    width: 585px;
+                    height: 44px;
+                    background-color: #EB423F;
+                    border: none;
+                    border-radius: 10px;
+                    color: #fff;
+                    font-size: 18px;
+                    cursor: pointer;
+                    position: relative;
+                    top: 20px;
+                }
+
+            }
+        }
+        & .registrar{
+            font-size: 20px;
+
+            & a{
+                text-decoration: none;
+                    color: #EB423F;
+                    font-size: 20px;
+                    font-weight: bold;
+            }
+        }
+    }
+}
+
+footer {
+    background: #E0A07C;
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    overflow: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    color: #AF6B45;
+}
