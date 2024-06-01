@@ -2,7 +2,7 @@ Bem vindos ao meu querido churrascometro.
 
 Sistema criado utilizando as tecnologias: 
 
-    - PHP versão 8.1.0
+    - PHP versão ^8.1
     - Composer versão 2.7.2
     - Laravel versão 10.48.9
 
