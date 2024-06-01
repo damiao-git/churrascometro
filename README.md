@@ -22,7 +22,8 @@ Mas para isso precisamos configurar algumas coisinhas para testes.
 
 
 2 - Utilizando o php artisan
-    a - Rode o comando : php artisan migrate --seed (Esse comando vai criar as tabelas e povoar elas)
+    a - Com o composer isntalado rode o comando : composer update
+    b - Rode o comando : php artisan migrate --seed (Esse comando vai criar as tabelas e povoar elas)
 
 
 3 - Faça login 
