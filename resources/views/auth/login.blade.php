@@ -6,7 +6,7 @@
     <div class="container">
         <div class="card">
             <div class="cabecalho">
-                <h2>LOGIN</h2>
+                <h2>LOGIN2</h2>
             </div>
             <hr>
             <div class="campos">
