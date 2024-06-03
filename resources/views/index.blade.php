@@ -11,7 +11,7 @@
             <form action="{{ route('churrasco.search') }}" method="post">
                 @csrf
                 <input type="text" name="search" class="" placeholder="Filtrar por nome">
-                <button type="submit" class="btn btn-secondary">Pesquisar</button>
+                <button type="submit" class="btn btn-secondary">Pesquisar </button>
             </form>
         </div>
         <div class="title text-center">
