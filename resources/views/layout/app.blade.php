@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="http://localhost/churrascometro/app/Http/favicon.ico">
+    <link rel="stylesheet" href="{{ url('css/style.css') }}" />
+    <link rel="shortcut icon" href="{{ url('\img\favicon.ico')}}">
     <title>@yield('title')</title>
 </head>
 
 <body class="bg-dark">
     <header>
         <div class="logo">
-            <a href="#"><img src="img/android-chrome-512x512.png" alt=""></a>
+            <a href="#"><img src="{{ url('img/android-chrome-512x512.png') }}" alt=""></a>
         </div>
         <div class="menu">
             <div class="menu_items">

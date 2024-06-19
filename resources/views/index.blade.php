@@ -6,57 +6,54 @@
     @if (session('message'))
         <div class="text-success text-center fw-2">{{ session('message') }}</div>
     @endif
-    <div class="container text-white">
-        <div class="">
+    <div class="container text-white d-flex flex-column">
+        <div class="search-filter">
+            <div class="novo">
+                <a href="{{ route('churrasco.create') }}" class="action-button">Novo</a>
+                <a href="{{ route('churrasco.index') }}" class="action-button">Lista</a>
+            </div>
             <form action="{{ route('churrasco.search') }}" method="post">
                 @csrf
-                <input type="text" name="search" class="" placeholder="Filtrar por nome">
-                <button type="submit" class="btn btn-secondary">Pesquisar</button>
+                <input type="text" name="search" class="search" placeholder="Filtrar por nome">
+                <button type="submit" class="button-search">Pesquisar</button>
             </form>
         </div>
-        <div class="title text-center">
+        <div class="title">
             <h1>Bem vindo ao Churrascômetro!</h1>
             <h2>Churrascos marcados até o momento</h2>
         </div>
-        <table class="table table-dark table-hover text-white">
+        <table class="table">
             <thead>
-                <tr class="table-secondary text-center">
+                <tr>
                     <th>#</th>
                     <th>Data</th>
                     <th>Local</th>
-                    <th>Quantidade de Pessoas</th>
-                    <th colspan="3">Ações</th>
+                    <th style="width:250px">Quantidade de Pessoas</th>
+                    <th colspan="3" style="text-align:center">Ações</th>
                 </tr>
             </thead>
-            @foreach ($churrascos as $churrasco)
-                <tbody>
+            <tbody>
+                @foreach ($churrascos as $churrasco)
                     <tr>
-                        <strong>
-                            <th>{{ $churrasco->id }}</th>
-                        </strong>
+                        <td>{{ $churrasco->id }}</td>
                         <td>{{ date('d/m/Y', strtotime($churrasco->data)) }}</td>
                         <td>{{ $churrasco->local }}</td>
                         <td>{{ $churrasco->qnt_pessoas }}</td>
-                        <td><a href="{{ route('churrasco.show', $churrasco->id) }}" class="btn btn-primary">Ver</a></td>
-                        <td><a href="{{ route('churrasco.edit', $churrasco->id) }}" class="btn btn-secondary">Editar</a>
-                        </td>
-                        <td>
+                        <td class="text-align-center"><a href="{{ route('churrasco.show', $churrasco->id) }}" class="action-button">Ver</a></td>
+                        <td class="text-align-center"><a href="{{ route('churrasco.edit', $churrasco->id) }}" class="action-button">Editar</a></td>
+                        <td class="text-align-center">
                             <form action="{{ route('churrasco.delete', $churrasco->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger"
+                                <button type="submit" class="action-button"
                                     onclick="return confirm('Excluir churrasco {{ $churrasco->local }} do dia {{ date('d/m/Y', strtotime($churrasco->data)) }}?')">Excluir</button>
                             </form>
                         </td>
                     </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
-        <div class="footer">
-            <a href="{{ route('churrasco.create') }}" class="btn btn-secondary m-1">Novo</a>
-            <a href="{{ route('churrasco.index') }}" class="btn btn-secondary m-1">Lista</a>
-
-        </div>
+        
     </div>
 
     {{ $churrascos->links() }}

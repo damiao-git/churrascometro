@@ -21,10 +21,11 @@ header {
     position: relative;
 }
 
-.logo{
+.logo {
     position: absolute;
     left: 0;
 }
+
 .logo img {
     width: 60px;
     height: 60px;
@@ -59,115 +60,235 @@ header {
     ;
 }
 
+.text-align-center {
+    text-align: center;
+}
+
+.action-button {
+    padding: 8px 30px;
+    border: 1px solid #000000;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #d9d9d9;
+    font-weight: 700;
+    color: #2c2c2c;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.action-button:hover {
+    background-color: #b1b1b1;
+    color: #ffffff;
+}
+
+.novo {
+    display: flex;
+    height: 40px;
+    gap: 15px;
+    margin: 10px;
+}
+
 .container {
 
     width: calc(100vw);
     height: calc(100vh - 117px);
     position: relative;
-    /* right: 30%;
-    top: 27%; */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin: 0 auto;
     background-color: #E6E6E6;
 
-    & .card {
-        position: relative;
-        width: 750px;
-        max-height: 450px;
-        height: 100%;
+    & .search-filter {
+
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-        background-color: #ffffff;
-        border-radius: 10px;
+        width: 100vw;
+        justify-content: space-between;
 
-        & .cabecalho {
-            position: relative;
-            top: -40px;
-            right: -25px;
-            width: 100%;
-            color: #d9c9c9;
-            font-size: 15px;
-        }
-
-        & hr {
-            width: 99%;
-            height: 2px;
-            border: #d9c9c9 1px solid;
-            position: relative;
-            top: -45px;
-        }
-
-        & .campos {
+        & form {
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 5px;
 
-            & form {
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 19px;
+            & .search {
+                width: 200px;
+                height: 40px;
+                background-color: #e6e6e6;
+                border: #fff 2px solid;
+                border-radius: 5px;
+            }
 
-                & input {
-                    width: 585px;
-                    height: 44px;
-                    border: #a3a3a3 2px solid;
-                    border-radius: 10px;
-                    position: relative;
-                    top: -20px;
-                    font-size: 17px;
-                }
+            & .search:hover {
+                border: #000 2px solid;
+            }
 
-                & input::placeholder {
-                    color: #c5afaf;
-                    font-size: 17px;
-                    font-weight: 500;
-                    padding: 10px;
-                }
+            & .search::placeholder {
+                padding-left: 10px;
+                font-weight: 700;
+            }
 
-                & a{
-                    text-decoration: none;
-                    color: #EB423F;
-                    font-size: 20px;
-                    position: relative;
-                    top: -20px;
-                }
-                & button{
-                    width: 585px;
-                    height: 44px;
-                    background-color: #EB423F;
-                    border: none;
-                    border-radius: 10px;
-                    color: #fff;
-                    font-size: 18px;
-                    cursor: pointer;
-                    position: relative;
-                    top: 20px;
-                }
+            & .button-search {
+                border: #fff 2px solid;
+                height: 40px;
+                width: 120px;
+                background: #E0A07C;
+                cursor: pointer;
+                font-weight: 700;
+                color: #4d4d4d;
+            }
+            & .button-search:hover {
+                border: #000 2px solid;
+                width: 120px;
+                background: #E0A07C;
+                cursor: pointer;
+            }
+        }
+    }
+
+    & .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .table {
+        width: 60vw;
+        border-spacing: 0;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-radius: 5px;
+
+        & thead {
+            & tr th {
+                text-align: left;
+                padding: 10px;
+                background-color: #fff;
+                border: #fff solid 1px;
 
             }
         }
-        & .registrar{
-            font-size: 20px;
 
-            & a{
-                text-decoration: none;
+        & tbody {
+            & tr td {
+                padding: 10px;
+                background-color: #fff;
+                border: #fff solid 1px;
+            }
+        }
+
+        & .card {
+            position: relative;
+            width: 750px;
+            max-height: 450px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+
+            & .cabecalho {
+                position: relative;
+                top: -40px;
+                right: -25px;
+                width: 100%;
+                color: #d9c9c9;
+                font-size: 15px;
+            }
+
+            & hr {
+                width: 99%;
+                height: 2px;
+                border: #d9c9c9 1px solid;
+                position: relative;
+                top: -45px;
+            }
+
+            & .campos {
+                display: flex;
+                flex-direction: column;
+
+                & form {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 19px;
+
+                    & input {
+                        width: 585px;
+                        height: 44px;
+                        border: #a3a3a3 2px solid;
+                        border-radius: 10px;
+                        position: relative;
+                        top: -20px;
+                        font-size: 17px;
+                    }
+
+                    & input::placeholder {
+                        color: #c5afaf;
+                        font-size: 17px;
+                        font-weight: 500;
+                        padding: 10px;
+                    }
+
+                    & a {
+                        text-decoration: none;
+                        color: #EB423F;
+                        font-size: 20px;
+                        position: relative;
+                        top: -20px;
+                    }
+
+                    & button {
+                        width: 585px;
+                        height: 44px;
+                        background-color: #EB423F;
+                        border: none;
+                        border-radius: 10px;
+                        color: #fff;
+                        font-size: 18px;
+                        cursor: pointer;
+                        position: relative;
+                        top: 20px;
+                    }
+
+                }
+            }
+
+            & .registrar {
+                font-size: 20px;
+
+                & a {
+                    text-decoration: none;
                     color: #EB423F;
                     font-size: 20px;
                     font-weight: bold;
+                }
             }
         }
     }
 }
 
+.form-container{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    border: #000 solid 1px;
+
+}
+.linha{
+    width: 39vw;
+    border: #E0A07C solid 1px;
+}
+
 footer {
     background: #E0A07C;
     width: 100vw;
-    height: 100px;
+    height: 60px;
     position: absolute;
     overflow: auto;
     bottom: 0;
